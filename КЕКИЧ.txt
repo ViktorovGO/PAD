@@ -1,0 +1,22 @@
+def princ_comp_method(data):
+
+    data = csr_matrix(data) #это надо так как матрица разрежена
+    model = TruncatedSVD(n_components = 2) #создаем объект
+    x_reduced_2 = model.fit(data)
+
+    #print(x_reduced_2.explained_variance_ratio_)
+    #print(x_reduced_2.explained_variance_ratio_.sum())
+    #print(x_reduced_2.singular_values_)
+    #print(x_reduced_2.explained_variance_)
+    print('Первая компонента:',x_reduced_2.components_[0])
+    print(len(x_reduced_2.components_[0]))
+    print('Вторая компонента:', x_reduced_2.components_[1])
+    plt.scatter(x_reduced_2.components_[0],x_reduced_2.components_[1])
+    plt.xlabel('PC1')
+    plt.ylabel('PC2')
+    #plt.plot(np.cumsum(x_reduced_2.explained_variance_ratio_))
+    #plt.xlabel('number of components')
+    #plt.ylabel('cumulative explained variance')
+    plt.show()
+
+    princ_comp_method(Xxx_train)
